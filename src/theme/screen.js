@@ -2,6 +2,7 @@
 
 import prismLight from 'spectacle/lib/themes/default/prism.light';
 import prismDark from 'spectacle/lib/themes/default/prism.dark';
+import duoTone from './prism-duotone-light';
 import { colors } from './colors';
 
 const defaultColors = {
@@ -125,7 +126,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
     },
     prism: {
       light: prismLight,
-      dark: prismDark
+      dark: duoTone,
     },
     progress: {
       bar: {
@@ -282,7 +283,8 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
       },
       image: {
         display: 'block',
-        margin: '0.5rem auto'
+        margin: '0.5rem auto',
+        maxHeight: 600
       },
       link: {
         textDecoration: 'none'
@@ -313,7 +315,8 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
       text: {
         fontSize: '2.66rem',
         fontFamily: fonts.secondary,
-        margin: '0.25rem auto'
+        margin: '0.25rem auto',
+        textAlign: 'left'
       }
     }
   };

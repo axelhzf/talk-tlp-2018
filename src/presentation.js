@@ -25,53 +25,55 @@ import 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-graphql';
 import './style.css';
-import { Tweet } from './components/Tweet';
 import { colors } from './theme/colors';
 
 const theme = createTheme();
 
 export default class Presentation extends React.Component {
   render() {
-    return (
-      <Deck theme={theme} progress="bar" transition={[]} transitionDuration={0}>
+    return <Deck theme={theme} progress="bar" transition={[]} transitionDuration={0}>
         <Slide>
           <Heading size={2}>
-            My journey into{' '}
-            <S type="bold" textColor={colors.blue.base}>
+            My journey into <S type="bold" textColor={colors.blue.base}>
               GraphQL
             </S>
           </Heading>
           <Text margin="40px 0 0 0">
-            Axel Hernández Ferrera{' '}
-            <Link href="https://twitter.com/axelhzf" title="@axelhzf" />
+            Axel Hernández Ferrera <Link href="https://twitter.com/axelhzf" title="@axelhzf" />
           </Text>
         </Slide>
 
         <Slide>
-          <Heading size={2}>Agenda?</Heading>
+          <Heading size={2}>Agenda</Heading>
           <List>
-            <ListItem>What is GraphQL</ListItem>
+            <ListItem>What is GraphQL?</ListItem>
             <ListItem>Why GraphQL?</ListItem>
-            <ListItem>Backend</ListItem>
-            <ListItem>Frontend</ListItem>
+            <ListItem>
+              Working with GraphQL on the <strong>backend</strong>
+            </ListItem>
+            <ListItem>
+              Working with GraphQL on the <strong>frontend</strong>
+            </ListItem>
           </List>
         </Slide>
 
         <Slide>
           <Heading size={2}>What is GraphQL?</Heading>
           <List>
-            <ListItem>GraphQL is a query language for building APIs</ListItem>
+            <ListItem>
+              GraphQL is a query language for building APIs
+            </ListItem>
             <ListItem>It provides an alternative to REST</ListItem>
             <ListItem>
-              It allows clients to define the structure of the data required.
-              They can get many resources in a single request.
+              It allows clients to define the structure of the data
+              required. They can get many resources in a single request.
             </ListItem>
             <ListItem>Programming language agnostic</ListItem>
           </List>
         </Slide>
 
         <Slide>
-          <Image src={require('./images/gql-differences.png')}/>
+          <Image src={require('./images/gql-differences.png')} height={600} />
         </Slide>
 
         <Slide>
@@ -83,7 +85,8 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading size={2}>GraphQL vs REST?</Heading>
+          <Heading size={2}>Why GraphQL?</Heading>
+          <Text>GraphQL vs Rest</Text>
           <List>
             <ListItem>Fetch data more efficiently</ListItem>
             <ListItem>Avoid custom endpoints</ListItem>
@@ -124,17 +127,15 @@ posts = await Promise.all(posts.map(post => {
           <List>
             <ListItem>All data is fetched in a single round trip.</ListItem>
             <ListItem>
-              The client and server are decoupled: the client specifies the data
-              needed instead of relying on the server endpoint to return the
-              correct data.
+              The client and server are decoupled: the client specifies the
+              data needed instead of relying on the server endpoint to
+              return the correct data.
             </ListItem>
           </List>
         </Slide>
 
         <Slide>
-          <Heading size={2}>
-            Client side data fetching is a hard problem
-          </Heading>
+          <Heading size={2}>Client side data fetching is a hard</Heading>
           <List>
             <ListItem>Caching</ListItem>
             <ListItem>Realtime</ListItem>
@@ -149,12 +150,13 @@ posts = await Promise.all(posts.map(post => {
         </Slide>
 
         <Slide>
-          <Image src={require('./images/caching.png')}/>
+          <Image src={require('./images/caching.png')} />
         </Slide>
 
         <Slide>
           <Text>
-            In a resource-oriented REST system, we can maintain a response cache
+            In a resource-oriented REST system, we can maintain a response
+            cache
           </Text>
           <JsCode>{`
 var cache = new Map();
@@ -168,10 +170,11 @@ rest.get = uri => {
         </Slide>
 
         <Slide>
-          <Heading>Cache Consistency</Heading>
-          /posts --- cached /posts/1 --- fetch the details of a post and the
-          title is updated /post --- user goes back to the posts page but we
-          have the data cached and we are displaying inconsistent information
+          <Heading size={2}>Cache Consistency</Heading>
+        </Slide>
+
+        <Slide>
+          <Image src={require('./images/cache-consistency.png')} />
         </Slide>
 
         <Slide>
@@ -243,13 +246,13 @@ const normalizedData = normalize(originalData, article);
         </Slide>
 
         <Slide>
-          <Heading size={2}>GraphQL APIs have a strongly typed schema</Heading>
+          <Heading size={2}>
+            GraphQL APIs have a strongly typed schema
+          </Heading>
         </Slide>
 
         <Slide>
-          <Heading size={2}>
-            At this point we were convinced that we wanted to try graphql
-          </Heading>
+          <Text>At this point we were convinced to try GraphQL</Text>
         </Slide>
 
         <Slide>
@@ -262,10 +265,10 @@ const normalizedData = normalize(originalData, article);
 
         <Slide>
           <Text>
-            The schema is a model of the data that can be fetched through the
-            GraphQL server. It defines what queries clients are allowed to make,
-            what types of data can be fetched from the server, and what the
-            relationships between these types are
+            The schema is a model of the data that can be fetched through
+            the GraphQL server. It defines what queries clients are allowed
+            to make, what types of data can be fetched from the server, and
+            what the relationships between these types are
           </Text>
         </Slide>
 
@@ -308,18 +311,16 @@ schema {
         </Slide>
 
         <Slide>
-          <Image src="https://cdn-images-1.medium.com/max/800/1*ldZjwY1qE1LTdm8VqNqltQ.png" />
+          <Image src={require('./images/graphql-schema-graph.png')} />
         </Slide>
 
         <Slide>
-          <Heading size={2}>
-            Three ways of represent your graphql schema
-          </Heading>
+          <Heading size={2}>Represent your graphql schema</Heading>
           <List>
             <ListItem>GraphQL Schema Definition Language</ListItem>
             <ListItem>GraphQL introspection query result</ListItem>
             <ListItem>GraphQL.js GraphQLSchema object</ListItem>
-            <Link href="https://blog.apollographql.com/three-ways-to-represent-your-graphql-schema-a41f4175100d" />
+            <Link title="Three ways to represent your graphql" href="https://blog.apollographql.com/three-ways-to-represent-your-graphql-schema-a41f4175100d" />
           </List>
         </Slide>
 
@@ -329,8 +330,9 @@ schema {
 
         <Slide>
           <Text>
-            Resolve functions are like little routers. They specify what code
-            needs to be executed when a user query for a certain type or field.
+            Resolve functions are like a controller. They specify what code
+            needs to be executed when a user query for a certain type or
+            field.
           </Text>
         </Slide>
 
@@ -345,17 +347,17 @@ schema {
         <Slide>
           <Heading size={2}>Resolver arguments</Heading>
           <List>
-            <ListItem>obj: The previous object</ListItem>
             <ListItem>
-              args: The arguments provided to the field in the GraphQL query
+              <strong>obj</strong>: The previous object
             </ListItem>
             <ListItem>
-              context: Contextual information like currently logged user or
-              access to the database
+              <strong>args</strong>: The arguments provided to the field in the GraphQL query
             </ListItem>
             <ListItem>
-              info: Holds field-specific information relevant to the current
-              query
+              <strong>context</strong>: Contextual information like currently logged user or access to the database
+            </ListItem>
+            <ListItem>
+              <strong>info</strong>: Holds field-specific information relevant to the current query
             </ListItem>
           </List>
         </Slide>
@@ -363,20 +365,14 @@ schema {
         <Slide>
           <JsCode>{`
 postById(obj, args){
-  return sql.raw('SELECT * FROM posts WHERE id = %s', args.id);
+  return
+    sql.raw(\`SELECT * FROM posts WHERE id = \${args.id}\`);
 }
+
 userById(obj, args){
-  return redis.get('user:\${args.id}');
+  return redis.get(\`user:\${args.id}\`);
 }
           `}</JsCode>
-        </Slide>
-
-        <Slide>
-          <Heading size={2}>Asynchronous resolvers</Heading>
-          <Text>
-            During execution, GraphQL will wait for Promises to complete before
-            continuing and will do so with optimal concurrency
-          </Text>
         </Slide>
 
         <Slide>
@@ -389,8 +385,15 @@ userById(obj, args){
         </Slide>
 
         <Slide>
-          <Heading size={2}>We start building our resolve functions</Heading>
-            <JsCode>{`
+          <Heading size={2}>Asynchronous resolvers</Heading>
+          <Text>
+            During execution, GraphQL will wait for Promises to complete
+            before continuing and will do so with optimal concurrency
+          </Text>
+        </Slide>
+
+        <Slide>
+          <JsCode>{`
 const resolver = {
    Query: {
      posts: () => Posts.findAll()
@@ -468,11 +471,10 @@ WHERE "comments".archived = FALSE AND "comments"."post_id" IN (2,8,11,12) -- the
         <Slide>
           <Heading size={2}>DataLoader</Heading>
           <Text>
-            DataLoader is a generic utility to be used as part of your
-            application's data fetching layer to provide a simplified and
-            consistent API over various remote data sources such as databases or
-            web services via <strong>batching</strong> and{' '}
-            <strong>caching</strong>.
+            DataLoader is a generic utility to be used as part of your application's data fetching layer to provide a simplified and consistent API over various remote data sources such as databases or web services via <strong
+            >
+              batching
+            </strong> and <strong>caching</strong>.
           </Text>
         </Slide>
 
@@ -491,10 +493,10 @@ assert(promise1A === promise1B)
         </Slide>
 
         <Slide>
-          <Heading size={2}>
-            Caching per request. Create loaders per request and add them to the
-            graphql context
-          </Heading>
+          <Heading size={2}>Caching per request</Heading>
+          <Text>
+            Create loaders per request and add them to the graphql context
+          </Text>
         </Slide>
 
         <Slide>
@@ -518,16 +520,10 @@ function usersResolver(obj, user: UserQueryArgs, context: Context, info: GraphQL
           <Heading size={2}>Tools for type definition generation</Heading>
           <List>
             <ListItem>
-              <Link
-                title="apollo-cli"
-                href="https://github.com/apollographql/apollo-cli"
-              />
+              <Link title="apollo-cli" href="https://github.com/apollographql/apollo-cli" />
             </ListItem>
             <ListItem>
-              <Link
-                title="graphql-code-generator"
-                href="https://github.com/dotansimha/graphql-code-generator"
-              />
+              <Link title="graphql-code-generator" href="https://github.com/dotansimha/graphql-code-generator" />
             </ListItem>
           </List>
         </Slide>
@@ -544,11 +540,9 @@ function usersResolver(obj, user: UserQueryArgs, context: Context, info: GraphQL
           <Heading size={2}>Tracing</Heading>
           <List>
             <ListItem>
-              <Link
-                title="Apollo engine"
-                href="https://www.apollographql.com/engine"
-              />
+              <Link title="Apollo engine" href="https://www.apollographql.com/engine" />
             </ListItem>
+            <ListItem>Custom</ListItem>
           </List>
         </Slide>
 
@@ -557,9 +551,9 @@ function usersResolver(obj, user: UserQueryArgs, context: Context, info: GraphQL
         </Slide>
 
         <Slide>
-          <Layout style={{alignItems: 'center'}}>
-            <Image style={{maxWidth: '50%'}} src={require('./images/apollo-logo.png')} />
-            <Image style={{maxWidth: '50%'}} src={require('./images/relay.svg')} />
+          <Layout style={{ alignItems: 'center' }}>
+            <Image style={{ maxWidth: '50%' }} src={require('./images/apollo-logo.png')} />
+            <Image style={{ maxWidth: '50%' }} src={require('./images/relay.svg')} />
           </Layout>
         </Slide>
 
@@ -574,6 +568,13 @@ const query = gql\`
     }
   }
 \`;
+`}
+          </JsCode>
+        </Slide>
+
+        <Slide>
+          <JsCode>
+            {`
 const Posts = () => (
   <Query query={query}>
     {(loading, error, data) => {
@@ -617,7 +618,7 @@ const Posts = () => (
         </Slide>
 
         <Slide>
-          <Image src={require('./images/apollo-client-bugs.png')} />
+          <Image src={require('./images/apollo-client-bugs.png')} height={500} />
         </Slide>
 
         <Slide>
@@ -626,7 +627,7 @@ const Posts = () => (
             <ListItem>
               Avoid boilerplate of handle loading and error state
             </ListItem>
-            <ListItem>User your own custom default values</ListItem>
+            <ListItem>Use your own custom default values</ListItem>
             <ListItem>Patch fetch-policy issues</ListItem>
           </List>
         </Slide>
@@ -637,14 +638,11 @@ const Posts = () => (
 
         <Slide>
           <JsCode>{`
-export default graphql(gql\`mutation { ... }\`, {
-  options: {
-    refetchQueries: [
-      'CommentList',
-      'PostList',
-    ],
-  },
-})(MyComponent);
+<Mutation mutation={ADD_TODO} refetchQueries={[TODO_LIST]}>
+  {addTodo => (
+    <button onClick={addTodo}>Add</button>
+  )}
+</Mutation>
           `}</JsCode>
         </Slide>
 
@@ -654,8 +652,7 @@ export default graphql(gql\`mutation { ... }\`, {
 
         <Slide>
           <Quote textAlign="left">
-            If you suck at providing REST API, you will suck at providing
-            GraphQL API
+            If you suck at providing REST API, you will suck at providing GraphQL API
             <Text textAlign="left" margin="40px 0">
               - Arnaud Lauret
             </Text>
@@ -668,8 +665,7 @@ export default graphql(gql\`mutation { ... }\`, {
             @axelhzf
           </Heading>
         </Slide>
-      </Deck>
-    );
+      </Deck>;
   }
 }
 
