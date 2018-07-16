@@ -2,6 +2,12 @@
   "name": "talk-tlp-2018",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "rm -rf docs && parcel build -d docs --public-url . index.html",
+    "deploy": "npm run build && git add . && git commit -m deploy && git push",
+    "tweets": "screenshot-tweet https://twitter.com/NikkitaFTW/status/1011928066816462848 src/images/gql-differences.png && screenshot-tweet https://twitter.com/codinghorror/status/506010907021828096 src/images/caching.png"
+  },
   "dependencies": {
     "babel-preset-react-app": "^3.1.2",
     "parcel-bundler": "^1.9.4",
@@ -10,11 +16,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-tweet-embed": "^1.1.0",
+    "screenshot-tweet": "^1.1.0",
     "spectacle": "^4.3.1"
-  },
-  "scripts": {
-    "start": "parcel index.html",
-    "build": "rm -rf docs && parcel build -d docs --public-url . index.html",
-    "deploy": "npm run build && git add . && git commit -m deploy && git push"
   }
 }

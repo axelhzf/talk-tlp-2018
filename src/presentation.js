@@ -71,7 +71,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Tweet id="1011928066816462848" />
+          <Image src={require('./images/gql-differences.png')}/>
         </Slide>
 
         <Slide>
@@ -149,7 +149,7 @@ posts = await Promise.all(posts.map(post => {
         </Slide>
 
         <Slide>
-          <Tweet id="506010907021828096" />
+          <Image src={require('./images/caching.png')}/>
         </Slide>
 
         <Slide>
