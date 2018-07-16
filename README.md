@@ -1,1 +1,3 @@
-# GraphQL (Meetup April 2018)
+# GraphQL (TLP 2018)
+
+http://axelhzf.com/talk-tlp-2018
