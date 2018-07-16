@@ -1,26 +1,27 @@
 /*eslint-disable object-shorthand*/
 
-import prismLight from "spectacle/lib/themes/default/prism.light";
-import prismDark from "spectacle/lib/themes/default/prism.dark";
+import prismLight from 'spectacle/lib/themes/default/prism.light';
+import prismDark from 'spectacle/lib/themes/default/prism.dark';
+import { colors } from './colors';
 
 const defaultColors = {
-  primary: '#151538',
-  secondary: '#117BD8',
-  tertiary: '#117BD8',
+  primary: '#22292f',
+  secondary: colors.blue.base,
+  tertiary: colors.blue.darker,
   quarternary: 'white',
-  bg: '#F4F4F7',
+  bg: colors.grey.white,
   bgCode: '#2a2734',
-  pink: '#E12EA1'
 };
 
 const defaultFonts = {
-  primary: 'IBM Plex Serif, serif',
-  secondary: 'IBM Plex Sans, sans-serif',
-  tertiary: 'monospace',
+  primary:
+    'system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;',
+  secondary:
+    'system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;',
+  tertiary: 'Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace'
 };
 
 const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
-  const colors = Object.assign({}, defaultColors, colorArgs);
   let normalizedFontArgs = {};
   let googleFonts = {};
   Object.keys(fontArgs).forEach(key => {
@@ -38,12 +39,12 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
     googleFonts,
     global: {
       body: {
-        background: colors.bg,
+        background: colors.grey.white,
         fontFamily: fonts.secondary,
         fontWeight: 'normal',
         fontSize: '2em',
-        color: '#202020',
-        overflow: 'hidden',
+        color: colors.grey.darkest,
+        overflow: 'hidden'
       },
       '_:-moz-tree-row(hover), .spectacle-deck': {
         perspective: '1000px'
@@ -58,11 +59,11 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         padding: 0
       },
       '*': {
-        boxSizing: 'border-box',
-      },
+        boxSizing: 'border-box'
+      }
     },
     fullscreen: {
-      fill: colors.tertiary,
+      fill: colors.tertiary
     },
     autoplay: {
       pause: {
@@ -73,10 +74,10 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         zIndex: 9999,
         background: 'none',
         border: 'none',
-        outline: 0,
+        outline: 0
       },
       pauseIcon: {
-        fill: colors.tertiary,
+        fill: colors.tertiary
       },
       play: {
         position: 'absolute',
@@ -86,11 +87,11 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         zIndex: 9999,
         background: 'none',
         border: 'none',
-        outline: 0,
+        outline: 0
       },
       playIcon: {
-        fill: colors.tertiary,
-      },
+        fill: colors.tertiary
+      }
     },
     controls: {
       prev: {
@@ -101,11 +102,11 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         zIndex: 9999,
         background: 'none',
         border: 'none',
-        outline: 0,
+        outline: 0
       },
       prevIcon: {
-        fill: colors.pink,
-        transition: 'fill 1s ease-in-out 0.2s',
+        fill: colors.secondary,
+        transition: 'fill 1s ease-in-out 0.2s'
       },
       next: {
         position: 'absolute',
@@ -115,16 +116,16 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         zIndex: 9999,
         background: 'none',
         border: 'none',
-        outline: 0,
+        outline: 0
       },
       nextIcon: {
-        fill: colors.pink ,
-        transition: 'fill 1s ease-in-out 0.2s',
-      },
+        fill: colors.secondary,
+        transition: 'fill 1s ease-in-out 0.2s'
+      }
     },
     prism: {
       light: prismLight,
-      dark: prismDark,
+      dark: prismDark
     },
     progress: {
       bar: {
@@ -136,12 +137,13 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           left: 0,
           transition: 'all 1s ease-in-out 0.2s',
           zIndex: 1000,
+          background: colors.blue.lightest
         },
         bar: {
           height: '100%',
-          background: colors.pink,
-          transition: 'all 0.3s ease-out',
-        },
+          background: colors.blue.base,
+          transition: 'all 0.3s ease-out'
+        }
       },
       number: {
         container: {
@@ -150,16 +152,16 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           right: 10,
           zIndex: 1000,
           color: colors.quarternary,
-          transition: 'all 0.3s ease-out',
-        },
-      },
+          transition: 'all 0.3s ease-out'
+        }
+      }
     },
     components: {
       blockquote: {
         textAlign: 'left',
         position: 'relative',
         display: 'inline-block',
-        margin: 20,
+        margin: 20
       },
       quote: {
         borderLeft: `1px solid ${colors.primary}`,
@@ -168,25 +170,25 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         color: colors.primary,
         fontSize: '4.9rem',
         lineHeight: 1,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
       },
       cite: {
         color: colors.tertiary,
         display: 'block',
         clear: 'left',
         fontSize: '2rem',
-        marginTop: '1rem',
+        marginTop: '1rem'
       },
       content: {
         margin: '0 auto',
-        textAlign: 'center',
+        textAlign: 'center'
       },
       codePane: {
         margin: 'auto',
         fontSize: '1.5rem',
         fontWeight: 'normal',
         minWidth: '100%',
-        maxWidth: 800,
+        maxWidth: 800
       },
       syntax: {
         fontFamily: fonts.tertiary,
@@ -200,7 +202,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         hyphens: 'none',
         whiteSpace: 'pre-wrap',
         padding: '0.5rem',
-        margin: 0,
+        margin: 0
       },
       code: {
         color: 'black',
@@ -209,7 +211,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         margin: '0.25rem auto',
         backgroundColor: 'rgba(0,0,0,0.15)',
         padding: '0 10px',
-        borderRadius: 3,
+        borderRadius: 3
       },
       goToAction: {
         borderRadius: '6px',
@@ -231,7 +233,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           lineHeight: 1.2,
           fontWeight: 'normal',
           margin: 0,
-          zoom: 1,
+          zoom: 1
         },
         h2: {
           color: colors.primary,
@@ -240,6 +242,10 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           lineHeight: 1.2,
           fontWeight: 'normal',
           margin: 0,
+          paddingBottom: 20,
+          marginBottom: 60,
+          borderBottom: '5px solid #3490DC',
+          textAlign: 'left'
         },
         h3: {
           color: colors.primary,
@@ -247,7 +253,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontFamily: fonts.primary,
           lineHeight: 1.2,
           fontWeight: 'normal',
-          margin: '0.5rem auto',
+          margin: '0.5rem auto'
         },
         h4: {
           color: colors.primary,
@@ -255,7 +261,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontFamily: fonts.primary,
           lineHeight: 1.2,
           fontWeight: 'normal',
-          margin: '0.5rem auto',
+          margin: '0.5rem auto'
         },
         h5: {
           color: colors.primary,
@@ -263,7 +269,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontFamily: fonts.primary,
           lineHeight: 1.2,
           fontWeight: 'normal',
-          margin: '0.5rem auto',
+          margin: '0.5rem auto'
         },
         h6: {
           color: colors.primary,
@@ -271,15 +277,15 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontFamily: fonts.primary,
           lineHeight: 1.2,
           fontWeight: 'bold',
-          margin: '0.5rem auto',
-        },
+          margin: '0.5rem auto'
+        }
       },
       image: {
         display: 'block',
-        margin: '0.5rem auto',
+        margin: '0.5rem auto'
       },
       link: {
-        textDecoration: 'none',
+        textDecoration: 'none'
       },
       listItem: {
         fontSize: '2.66rem',
@@ -289,27 +295,27 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         textAlign: 'left',
         listStylePosition: 'outside',
         padding: 0,
+        paddingLeft: 40
       },
       s: {
-        strikethrough: {},
+        strikethrough: {}
       },
       tableHeaderItem: {
         fontSize: '2.66rem',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
       },
       tableItem: {
-        fontSize: '2.66rem',
+        fontSize: '2.66rem'
       },
       table: {
-        width: '100%',
+        width: '100%'
       },
       text: {
-        color: 'black',
         fontSize: '2.66rem',
         fontFamily: fonts.secondary,
-        margin: '0.25rem auto',
-      },
-    },
+        margin: '0.25rem auto'
+      }
+    }
   };
 };
 

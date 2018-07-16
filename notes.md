@@ -14,6 +14,8 @@ https://medium.com/graphql-europe/watch-all-talks-from-graphql-europe-2018-4a47e
 
 How graphql works
 https://medium.com/graphql-europe/watch-all-talks-from-graphql-europe-2018-4a47ee28570a
+https://blog.apollographql.com/graphql-explained-5844742f195e
+
 
 Agenda?
 * 
@@ -30,7 +32,7 @@ Ejemplo de hilo conductor durante la charla. Un sistema de blogs con posts, auto
 First reaction
 
 Frontend developers: ❤️
-backend developers: 🙀
+Backend developers: 🙀
 
 
 Building a cache system on top of redux
@@ -69,8 +71,7 @@ Benefits on a Monolith
   
 Problems of a monolith
   
-  
-  
+    
 Explicación de las tres partes de una query en graphql: Queries, mutaciones y subscripciones.
 Cómo se trabaja con los resolvers
 Resolución de queries en paralelos y de mutaciones en serie.
@@ -168,4 +169,4 @@ Cache invalidation es un problema complicado.
 
 Testing, generación automática de mocks
 
-https://blog.apollographql.com/graphql-explained-5844742f195e
+
