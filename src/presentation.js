@@ -136,7 +136,7 @@ posts = await Promise.all(posts.map(post => {
         </Slide>
 
         <Slide>
-          <Heading size={2}>Client side data fetching is a hard</Heading>
+          <Heading size={2}>Client side data fetching is hard</Heading>
           <List>
             <ListItem>Caching</ListItem>
             <ListItem>Realtime</ListItem>
@@ -337,7 +337,7 @@ schema {
         <Slide>
           <Text>
             Resolve functions are like a controller. They specify what code
-            needs to be executed when a user query for a certain type or field.
+            needs to be executed when a user queries for a certain type or field.
           </Text>
         </Slide>
 
@@ -418,7 +418,7 @@ const resolver = {
         </Slide>
 
         <Slide>
-          <Heading size={2}>N+1 request to the DB</Heading>
+          <Heading size={2}>N+1 requests to the DB</Heading>
         </Slide>
 
         <Slide>
@@ -605,7 +605,7 @@ const Posts = () => (
       if (loading) return <div>Loading...</div>
       if (error) return <div>Error</div>
       return <ul>{data.posts.map(post =>
-        <li>{post.title}</li>
+        <li key={post.id}>{post.title}</li>
       )}</ul>
     }}
   </Query>
