@@ -105,7 +105,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         outline: 0
       },
       prevIcon: {
-        fill: colors.secondary,
+        fill: colors.blue.base,
         transition: 'fill 1s ease-in-out 0.2s'
       },
       next: {
@@ -119,7 +119,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         outline: 0
       },
       nextIcon: {
-        fill: colors.secondary,
+        fill: colors.blue.base,
         transition: 'fill 1s ease-in-out 0.2s'
       }
     },
